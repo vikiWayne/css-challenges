@@ -1,0 +1,92 @@
+$bucket-color: #bbbbbb;
+$bars-color: #f08127;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container {
+    width: 300px;
+    height: 350px;
+    position: relative;
+    transition: all ease-in 1000ms;
+}
+
+.bucket {
+    height: 125px;
+    bottom: 0;
+    position: absolute;
+    border: 30px $bucket-color solid;
+    width: 100%;
+    border-top: none;
+}
+
+.stack_item {
+    width: 170px;
+    height: 30px;
+    background-color: $bars-color;
+    position: absolute;
+    transition: all ease-in-out 500ms;
+}
+
+@mixin bar_position {
+    left: 50%;
+}
+
+.item1,
+.item2,
+.item3,
+.item4,
+.item5 {
+    @include bar_position();
+}
+.item1 {
+    transform: translateX(-50%);
+    bottom: 55px;
+}
+.item2 {
+    transform: rotate(9deg) translateX(-48%);
+    bottom: 100px;
+}
+.item3 {
+    transform: rotate(25deg) translateX(-41%);
+    bottom: 145px;
+}
+.item4 {
+    transform: rotate(42deg) translateX(-23%);
+    bottom: 200px;
+}
+.item5 {
+    transform: rotate(58deg) translateX(21%);
+    bottom: 297px;
+}
+
+@mixin bar_hover {
+    transform: rotate(0deg) translateX(-50%);
+}
+
+.container:hover {
+    cursor: pointer;
+}
+
+.container:hover > .item2,
+.container:hover > .item3,
+.container:hover > .item4,
+.container:hover > .item5 {
+    @include bar_hover();
+}
+
+.container:hover > .item4 {
+    bottom: 190px;
+}
+.container:hover > .item5 {
+    bottom: 235px;
+}
