@@ -1,0 +1,8 @@
+@use "./styles/variables.scss" as *;
+@use "./styles/mixins.scss" as *;
+
+.heading {
+    font-family: $ff-primary;
+    font-size: 2rem;
+    color: $clr-gray-dark;
+}
